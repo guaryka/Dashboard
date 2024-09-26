@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, Col, Row } from "antd";
 import {
     TeamOutlined,
@@ -9,6 +8,7 @@ import {
     BarsOutlined,
     ProfileOutlined,
 } from "@ant-design/icons";
+
 const data = [
     {
         title: "Tổng số cán bộ",
@@ -60,7 +60,7 @@ const data = [
     },
 ];
 
-export const CardsRow: React.FC = () => {
+export const TheThongKe = () => {
     return (
         <Card style={{ backgroundColor: "#fff" }}>
             <Row gutter={[16, 16]}>

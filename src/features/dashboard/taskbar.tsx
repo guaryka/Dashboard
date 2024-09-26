@@ -1,5 +1,6 @@
-import { Menu,Select } from "antd"
-import { Link } from "react-router-dom"
+import { Menu, Select } from "antd"
+import { Link,useLocation } from "react-router-dom"
+import './taskbar.css'
 
 interface Option {
     value: string;
@@ -33,15 +34,19 @@ for (let year = 2015; year <= 2024; year++) {
 }
 
 export const Chuyentrang = () => {
+    const location = useLocation();
     return (
-        <Menu
-            mode="horizontal"
-            className="custom-menu"
-        >
-            <Menu.Item key="canhan">
+        <Menu mode="horizontal" className="custom-menu">
+            <Menu.Item
+                key="canhan"
+                className={location.pathname === '/canhan' ? 'ant-menu-item-active' : ''}
+            >
                 <Link to="/canhan">Cá nhân</Link>
             </Menu.Item>
-            <Menu.Item key="toaan">
+            <Menu.Item
+                key="toaan"
+                className={location.pathname === '/toaannhandantoicao' ? 'ant-menu-item-active' : ''}
+            >
                 <Link to="/toaannhandantoicao">Tòa án nhân dân tối cao</Link>
             </Menu.Item>
         </Menu>

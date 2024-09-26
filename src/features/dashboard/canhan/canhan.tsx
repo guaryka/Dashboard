@@ -1,14 +1,15 @@
 import { Row, Col, Card, Typography } from 'antd';
 import { BarChartOutlined, PlusOutlined, CalendarOutlined, AppstoreOutlined } from '@ant-design/icons';
 import { Chuyentrang, Thoigian } from '../taskbar';
+import BieuDoCaNhan from './bieudocanhan';
 
 const { Title } = Typography;
 
 const Canhan = () => {
     return (
         <div style={{ backgroundColor: '#eff2f5' }}>
-            <div style={{ padding: '20px' }} >
-                <Row style={{ marginBottom: '5px',backgroundColor: "#fff" }}>
+            <div style={{ padding: '10px' }} >
+                <Row style={{ marginBottom: '5px', backgroundColor: "#fff" }}>
                     <Col span={15}>
                         <Chuyentrang />
                     </Col>
@@ -16,18 +17,20 @@ const Canhan = () => {
                         <Thoigian />
                     </Col>
                 </Row>
-                <Row gutter={[16, 16]} style={{ display: 'flex', alignItems: 'stretch' }}>
-                    <Col span={12} style={{ display: 'flex', flexDirection: 'column' }}>
-                        <Row gutter={[16, 16]} style={{ flex: 1 }}>
+                <Row gutter={[16, 16]}>
+                    <Col span={12}>
+                        <Row gutter={[16, 16]}>
                             <Col span={24}>
                                 <Card
-                                    style={{ backgroundColor: '#ff6b6b', height: '100%' }}
+                                    title="Đánh giá cá nhân"
+                                    headStyle={{ borderBottom: 'none', color: 'white' }}
+                                    style={{ backgroundColor: '#F1416C', height: '100%' }}
                                 >
-                                    <h3>Đánh giá cá nhân</h3>
+                                    <BieuDoCaNhan />
                                 </Card>
                             </Col>
                             <Col span={24}>
-                                <Card style={{ height: '100%' }}>
+                                <Card>
                                     <Row gutter={[16, 16]}>
                                         <Col span={12}>
                                             <Card style={{ backgroundColor: '#fff3cd' }} hoverable>
@@ -59,7 +62,7 @@ const Canhan = () => {
                         </Row>
                     </Col>
 
-                    <Col span={12} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'stretch' }}>
+                    <Col span={12}>
                         <Card title="Nhắc việc" style={{ height: '100%' }}>
                         </Card>
                     </Col>
