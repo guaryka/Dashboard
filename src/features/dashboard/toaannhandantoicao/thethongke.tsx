@@ -1,4 +1,4 @@
-import { Card, Col, Row } from "antd";
+import { Card, Col, Flex, Row } from "antd";
 import {
     TeamOutlined,
     CheckSquareOutlined,
@@ -66,16 +66,22 @@ export const TheThongKe = () => {
             <Row gutter={[16, 16]}>
                 {data.map((item, index) => (
                     <Col xs={24} sm={12} md={6} key={index}>
-                        <Card style={{ backgroundColor: item.color }} bordered={false}>
-                            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", color: "white" }}>
-                                <div style={{ display: "flex", flexDirection: "column" }}>
-                                    <h4>{item.title}</h4>
-                                    <h4>{item.count}</h4>
-                                </div>
-                                <div style={{ fontSize: "2em", marginRight: "8px" }}>
-                                    {item.icon}
-                                </div>
-                            </div>
+                        <Card style={{ width: "100%", height: "125px", backgroundColor: item.color }}>
+                            <Row>
+                                <Col span={20} style={{ color: "white" }}>
+                                    <div className="card-title text-overflow text-overflow-1 text-white" title={item.title} style={{ fontSize: '14px' }}>
+                                        {item.title}
+                                    </div>
+                                    <h3 className="card-text m-0 text-white" style={{ fontSize: '24px' }}>
+                                        <b>{item.count}</b>
+                                    </h3>
+                                </Col>
+                                <Col span={4} style={{ textAlign: 'center', alignSelf: 'center' }}>
+                                    <div style={{ fontSize: '3em', color: 'white' }}>
+                                        {item.icon}
+                                    </div>
+                                </Col>
+                            </Row>
                         </Card>
                     </Col>
                 ))}

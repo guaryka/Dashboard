@@ -1,6 +1,6 @@
 import { Menu, Select } from "antd"
 import { Link,useLocation } from "react-router-dom"
-import './taskbar.css'
+import './TienIch.css'
 
 interface Option {
     value: string;
@@ -33,7 +33,7 @@ for (let year = 2015; year <= 2024; year++) {
     });
 }
 
-export const Chuyentrang = () => {
+export const MenuChuyentrang = () => {
     const location = useLocation();
     return (
         <Menu mode="horizontal" className="custom-menu">
@@ -53,7 +53,7 @@ export const Chuyentrang = () => {
     )
 }
 
-export const Thoigian = () => {
+export const BoLocThoiGian = () => {
     return (
         <>
             <span>Loại đánh giá:</span>

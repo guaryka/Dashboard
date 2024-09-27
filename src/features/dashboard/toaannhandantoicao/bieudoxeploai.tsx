@@ -4,7 +4,25 @@ import { Card } from 'antd';
 
 Chart.register(...registerables);
 
-const datasets: (ChartDataset<'bar'> | ChartDataset<'line'>)[] = [
+type BaseDataset = {
+    label: string;
+    data: number[];
+    type: 'line' | 'bar'; 
+    borderColor: string;
+    borderWidth: number;
+    fill: boolean;
+    backgroundColor?: undefined;
+    barThickness?: undefined;
+};
+
+type OtherDataset = {
+    label: string;
+    data: number[];
+    backgroundColor: string;
+    type?: undefined; 
+};
+
+const datasets: (BaseDataset | OtherDataset)[] = [
     {
         label: 'Cán bộ đánh giá',
         data: [70, 76, 60, 73, 86, 78],
@@ -25,39 +43,27 @@ const datasets: (ChartDataset<'bar'> | ChartDataset<'line'>)[] = [
         label: 'Hoàn thành xuất sắc nhiệm vụ',
         data: [65, 59, 80, 81, 56, 55],
         backgroundColor: '#32C3F7',
-        borderColor: '#32C3F7',
-        borderWidth: 1,
-        barThickness: 10,
     },
     {
         label: 'Hoàn thành tốt nhiệm vụ',
         data: [50, 60, 70, 90, 40, 65],
         backgroundColor: '#36FDD6',
-        borderColor: '#36FDD6',
-        borderWidth: 1,
-        barThickness: 10,
     },
     {
         label: 'Hoàn thành nhiệm vụ',
         data: [50, 60, 70, 90, 40, 65],
         backgroundColor: '#FEB252',
-        borderColor: '#FEB252',
-        borderWidth: 1,
-        barThickness: 10,
-
     },
     {
         label: 'Không hoàn thành nhiệm vụ',
         data: [0, 0, 3, 0, 0, 0],
         backgroundColor: 'red',
-        borderColor: 'red',
-        borderWidth: 1,
-        barThickness: 10,
     },
 ];
 
 const BieuDoXepLoai = () => {
-    const labels = ['Tháng 1 2024', 'Tháng 2 2024', 'Tháng 3 2024', 'Tháng 4 2024', 'Tháng 5 2024', 'Tháng 6 2024']
+    const labels = ['Tháng 1 2024', 'Tháng 2 2024', 'Tháng 3 2024', 'Tháng 4 2024', 'Tháng 5 2024', 'Tháng 6 2024'];
+    
     useEffect(() => {
         const canvas = document.getElementById('mixedChart') as HTMLCanvasElement | null;
         if (!canvas) return;
@@ -68,7 +74,7 @@ const BieuDoXepLoai = () => {
             type: 'bar',
             data: {
                 labels: labels,
-                datasets: datasets,
+                datasets: datasets as ChartDataset<'bar' | 'line', number[]>[],
             },
             options: {
                 responsive: true,
@@ -80,7 +86,6 @@ const BieuDoXepLoai = () => {
                             generateLabels: (chart) => {
                                 const original = Chart.defaults.plugins.legend.labels.generateLabels;
                                 const labels = original.call(this, chart);
-
                                 labels.forEach((label, index) => {
                                     switch (index) {
                                         case 0:
@@ -111,7 +116,6 @@ const BieuDoXepLoai = () => {
                                             break;
                                     }
                                 });
-
                                 return labels;
                             },
                         },
@@ -139,9 +143,7 @@ const BieuDoXepLoai = () => {
     }, []);
 
     return (
-        <Card
-            title="Tình hình xếp loại của đơn vị theo thời gian"
-        >
+        <Card title="Tình hình xếp loại của đơn vị theo thời gian">
             <canvas id="mixedChart" width="400" height="200"></canvas>
         </Card>
     );

@@ -1,6 +1,6 @@
 import { Row, Col, Card, Typography } from 'antd';
 import { BarChartOutlined, PlusOutlined, CalendarOutlined, AppstoreOutlined } from '@ant-design/icons';
-import { Chuyentrang, Thoigian } from '../taskbar';
+import { MenuChuyentrang, BoLocThoiGian } from '../tienich/TienIch';
 import BieuDoCaNhan from './bieudocanhan';
 
 const { Title } = Typography;
@@ -11,10 +11,10 @@ const Canhan = () => {
             <div style={{ padding: '10px' }} >
                 <Row style={{ marginBottom: '5px', backgroundColor: "#fff" }}>
                     <Col span={15}>
-                        <Chuyentrang />
+                        <MenuChuyentrang />
                     </Col>
                     <Col span={9} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <Thoigian />
+                        <BoLocThoiGian />
                     </Col>
                 </Row>
                 <Row gutter={[16, 16]}>

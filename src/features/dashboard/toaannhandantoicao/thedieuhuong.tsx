@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Breadcrumb, Button, Col, Select, Row } from 'antd';
 import { LeftOutlined, HomeOutlined, SwapOutlined } from '@ant-design/icons';
+import data from './data.json'
 
 const TheDieuHuong: React.FC = () => {
     const [breadcrumbItems, setBreadcrumbItems] = useState([
@@ -84,10 +85,7 @@ const TheDieuHuong: React.FC = () => {
                 <Select
                     showSearch
                     style={{ width: '70%' }}
-                    filterOption={(input, option) =>
-                        (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
-                    }
-                    options={options}
+                    options={data}
                     onChange={handleSelect}
                 />
             </Col>
