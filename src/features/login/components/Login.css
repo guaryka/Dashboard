@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'RobotoCondensed';
+    src: url('../fonts/RobotoCondensedRegular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'RobotoCondensed';
+    src: url('../fonts/RobotoCondensed-Bold.ttf') format('truetype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Helvet';
+    src: url('../fonts/00119-UTM-HelvetIns.ttf') format('truetype');
+    font-weight: 900;
+}
+
+.header-logo img {
+    width: 13vh;
+}
+
+.header-title h1 {
+    font-family: 'Helvet';
+    /* font-style: normal; */
+    /* font-weight: 1; */
+    font-size: 2.4vw;
+    line-height: 1.5vw;
+    text-align: center;
+    /* text-transform: uppercase; */
+    color: #FFF500;
+    text-shadow: 0px 0.2vw 0.3vw rgba(0, 0, 0, 0.25);
+    margin-bottom: 1vw;
+}
+
+.header-title h2 {
+    font-family: 'RobotoCondensed';
+    font-weight: 600;
+    font-size: 0.9vw;
+    line-height: 1.3vw;
+    text-align: center;
+    /* text-transform: uppercase; */
+    color: #FFFFFF;
+    text-shadow: 0px 0.2vw 0.3vw rgba(0, 0, 0, 0.25);
+    margin-bottom: 0;
+}
+
+.custom-button {
+    width: 55%;
+    height: 8vh;
+    background-color: #D60F12;
+    color: #fff;
+    border: none;
+    font-family: 'Helvet';
+    font-size: 1.3vw;
+}
+
+.custom-button:hover,
+.custom-button:focus {
+    background-color: #D60F12 !important;
+    color: white;
+}
+
+.form-title {
+    font-size: 1.5vw !important;
+    line-height: 2vw;
+    font-family: 'Helvet';
+    text-align: center;
+    text-transform: uppercase;
+    color: #CE1F1F;
+    text-shadow: 0px 0.2vw 0.3vw #fff;
+    margin-bottom: 5vh;
+}
+
+.form-container {
+    margin-left: 50%;
+    width: 26%;
+    height: 77vh;
+    padding: 30px;
+    background-color: #F4DAAC;
+    background-image: url('https://dgcbcc.toaan.gov.vn/_forms/images/bg-form-login.png');
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
